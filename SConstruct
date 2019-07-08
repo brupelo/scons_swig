@@ -2,12 +2,11 @@ import distutils.sysconfig
 import os
 import sys
 import pprint
-from pathlib import Path
 
 cfg_vars = ['CC', 'CXX', 'OPT', 'BASECFLAGS', 'CCSHARED', 'LDSHARED', 'SO']
 cfg_vars = {v: distutils.sysconfig.get_config_vars(v) for v in cfg_vars}
-cfg_vars['LIBPATH'] = str(Path(sys.exec_prefix) / "libs")
-cfg_vars['LIBS'] = "python36.lib"
+cfg_vars['LIBPATH'] = "D:/software/python2714_32/libs"
+cfg_vars['LIBS'] = "python27.lib"
 cfg_vars['CPPPATH'] = [distutils.sysconfig.get_python_inc()]
 
 env = Environment(

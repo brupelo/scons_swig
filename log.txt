@@ -1,4 +1,4 @@
-(py364_32) D:\sources\personal\TODO\foo>scons -c && scons --debug=presub
+(py2714_32) D:\sources\personal\TODO\foo>scons -c && scons --debug=presub
 scons: Reading SConscript files ...
 scons: done reading SConscript files.
 scons: Cleaning targets ...
@@ -8,20 +8,25 @@ scons: done reading SConscript files.
 scons: Building targets ...
 Building example.obj with action:
   ${TEMPFILE("$SHCC $_MSVC_OUTPUT_FLAG /c $CHANGED_SOURCES $SHCFLAGS $SHCCFLAGS $_CCCOMCOM","$SHCCCOMSTR")}
-cl /Foexample.obj /c example.c /nologo /ID:\software\python364_32\include
+cl /Foexample.obj /c example.c /nologo /ID:\software\python2714_32\include
 example.c
 Building example_wrap.c and example.py with action:
   $SWIG -o $TARGET ${_SWIGOUTDIR} ${_SWIGINCFLAGS} $SWIGFLAGS $SOURCES
 swig -o example_wrap.c -python example.i
 Building example_wrap.obj with action:
   ${TEMPFILE("$SHCC $_MSVC_OUTPUT_FLAG /c $CHANGED_SOURCES $SHCFLAGS $SHCCFLAGS $_CCCOMCOM","$SHCCCOMSTR")}
-cl /Foexample_wrap.obj /c example_wrap.c /nologo /ID:\software\python364_32\include
+cl /Foexample_wrap.obj /c example_wrap.c /nologo /ID:\software\python2714_32\include
 example_wrap.c
 Building _example.dll and _example.lib and _example.exp with action:
   SharedFlagChecker(target, source, env)
 Building _example.dll and _example.lib and _example.exp with action:
-  ${TEMPFILE("$SHLINK $SHLINKFLAGS $_SHLINK_TARGETS $_LIBDIRFLAGS $_LIBFLAGS $_PDB $_SHLINK_SOURCES", "$SHLINKCOMSTR")}
-link /nologo /dll /out:_example.dll /implib:_example.lib /LIBPATH:D:\virtual_envs\py364_32\libs python36.lib example.obj example_wrap.obj
-LINK : fatal error LNK1104: cannot open file 'C:\Windows\lnk{E55CA3E9-88B2-4E07-9F40-5F6865F3C42C}.tmp'
+  ${TEMPFILE("$SHLINK $SHLINKFLAGS $_SHLINK_TARGETS $_LIBDIRFLAGS $_LIBFLAGS $_PDB $_SHLINK_SOURCES", "$SHLIN
+KCOMSTR")}
+link /nologo /dll /out:_example.dll /implib:_example.lib /LIBPATH:D:\software\python2714_32\libs python27.lib
+ example.obj example_wrap.obj
+LINK : fatal error LNK1104: cannot open file 'C:\Windows\lnk{C7820DC6-33AC-409B-A1A7-9E91838E1068}.tmp'
 scons: *** [_example.dll] Error 1104
 scons: building terminated because of errors.
+
+(py2714_32) D:\sources\personal\TODO\foo>
+
