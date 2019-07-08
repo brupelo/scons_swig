@@ -1,0 +1,7 @@
+scons: Reading SConscript files ...
+scons: done reading SConscript files.
+scons: Building targets ...
+link /nologo /dll /out:_example.dll /implib:_example.lib /LIBPATH:D:\virtual_envs\py364_32\libs python36.lib example.obj example_wrap.obj
+LINK : fatal error LNK1104: cannot open file 'C:\Windows\lnk{0BF2B19A-FBF9-4C27-8F0B-970C77F42D60}.tmp'
+scons: *** [_example.dll] Error 1104
+scons: building terminated because of errors.

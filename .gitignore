@@ -1,2 +1,4 @@
 *.dblite
 *.obj
+*.ui
+*_wrap*

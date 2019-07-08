@@ -10,6 +10,10 @@ cfg_vars['LIBPATH'] = str(Path(sys.exec_prefix) / "libs")
 cfg_vars['LIBS'] = "python36.lib"
 cfg_vars['CPPPATH'] = [distutils.sysconfig.get_python_inc()]
 
+# pprint.pprint(cfg_vars)
+
+# print(os.environ["PATH"])
+
 env = Environment(
     SWIGFLAGS=['-python'],
     CPPPATH=[distutils.sysconfig.get_python_inc()],
@@ -21,5 +25,22 @@ env = Environment(
     ENV={
         'PATH': "D:/software/swig"
     }
+    # ENV=os.environ
 )
-env.SharedLibrary('_example', ['example.c', 'example.i'])
+
+swig_builder = Builder(
+    action='swig -python $SOURCE && cl',
+    # suffix='.py',
+    src_suffix='.i',
+    single_source=True
+)
+
+env.Append(BUILDERS={'Swig': swig_builder})
+env.Swig(source=Glob('*.i'))
+wrapper = env.SharedLibrary(
+    '_example',
+    ['example.c', 'example_wrap.c'],
+    SHLIBSUFFIX=cfg_vars['SO'],
+    CPPPATH=cfg_vars['CPPPATH'],
+)
+# Depends(wrapper, 'example.i')
