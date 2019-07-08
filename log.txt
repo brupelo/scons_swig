@@ -1,7 +1,24 @@
+(py364_32) D:\sources\personal\TODO\foo>scons -c
+scons: Reading SConscript files ...
+scons: done reading SConscript files.
+scons: Cleaning targets ...
+scons: done cleaning targets.
+
+(py364_32) D:\sources\personal\TODO\foo>scons
 scons: Reading SConscript files ...
 scons: done reading SConscript files.
 scons: Building targets ...
-link /nologo /dll /out:_example.dll /implib:_example.lib /LIBPATH:D:\virtual_envs\py364_32\libs python36.lib example.obj example_wrap.obj
-LINK : fatal error LNK1104: cannot open file 'C:\Windows\lnk{0BF2B19A-FBF9-4C27-8F0B-970C77F42D60}.tmp'
+cl /Foexample.obj /c example.c /nologo /ID:\software\python364_32\include
+example.c
+swig -o example_wrap.c -python example.i
+cl /Foexample_wrap.obj /c example_wrap.c /nologo /ID:\software\python364_32\include
+example_wrap.c
+link /nologo /dll /out:_example.dll /implib:_example.lib /LIBPATH:D:\virtual_envs\py364_32\libs python36.lib
+example.obj example_wrap.obj
+LINK : fatal error LNK1104: cannot open file 'C:\Windows\lnk{FD4FC0BA-C94D-4278-A73D-25CC37484AD1}.tmp'
 scons: *** [_example.dll] Error 1104
 scons: building terminated because of errors.
+
+(py364_32) D:\sources\personal\TODO\foo>
+
+
